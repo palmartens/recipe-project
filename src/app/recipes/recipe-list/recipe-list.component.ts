@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Recipe } from '../recipe.model';
 
 @Component({
   selector: 'app-recipe-list',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent {
+  recipes: Recipe[] = [
+    new Recipe('Mac & Cheese','Macaroni (500g), Kaas (250g)','https://upload.wikimedia.org/wikipedia/commons/4/44/Original_Mac_n_Cheese_.jpg')
+  ];
+
+  constructor() {  }
 
 }
