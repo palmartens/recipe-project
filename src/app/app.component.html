@@ -3,7 +3,12 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
-      <app-server-element [srvElement]="serverElement" *ngFor="let serverElement of serverElements"></app-server-element>
+      <app-server-element [srvElement]="serverElement" *ngFor="let serverElement of serverElements">
+        <p>
+          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
+          <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+      </p>
+      </app-server-element>
     </div>
   </div>
 </div>
