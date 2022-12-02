@@ -3,7 +3,9 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
-      <app-server-element [srvElement]="serverElement" *ngFor="let serverElement of serverElements">
+      <button type="button" class="btn btn-primary" (click)="onChangeFirst()">Change first server name</button>
+      <button type="button" class="btn btn-danger" (click)="onDestroyFirst()">Destroy first server name</button>
+      <app-server-element [name]="serverElement.name" [srvElement]="serverElement" *ngFor="let serverElement of serverElements">
         <p>
           <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
           <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
