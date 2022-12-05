@@ -12,5 +12,5 @@ export class Ingredient {
     // -------------
 
     // shortcut way (thanks to Typescript):  
-    constructor(public name: string, public amount:number, public unit: string = ''){}
+    constructor(public name: string, public amount:number){}
 }

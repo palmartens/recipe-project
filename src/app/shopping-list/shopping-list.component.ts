@@ -7,10 +7,13 @@ import { Ingredient } from '../shared/ingredient.model';
 })
 export class ShoppingListComponent {
   ingredients: Ingredient[] = [
-    new Ingredient('Macaroni',500, 'grams'),
-    new Ingredient('Cheese', 250,'grams')  
+    new Ingredient('Macaroni',500),
+    new Ingredient('Cheese', 250)  
   ];
 
 
+  onIngredientAdded(ingredient: Ingredient) {
+    this.ingredients.push(ingredient);
+  }
 
 }
