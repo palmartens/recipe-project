@@ -7,13 +7,25 @@
 
 import { Recipe } from './recipe.model';
 import { EventEmitter } from '@angular/core';
+import { Ingredient } from '../shared/ingredient.model';
 
 export class RecipeService {
   public recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
-    new Recipe('Mac & Cheese','Macaroni (500g), Kaas (250g)','https://upload.wikimedia.org/wikipedia/commons/4/44/Original_Mac_n_Cheese_.jpg'),
-    new Recipe('Spaghetti','Spaghetti (500g)','https://upload.wikimedia.org/wikipedia/commons/4/4e/Pasta_with_tomatoes_%287148182009%29.jpg')
+    new Recipe(
+      'Mac & Cheese',
+      'Mac & Cheese nice and creamy',
+      'https://upload.wikimedia.org/wikipedia/commons/4/44/Original_Mac_n_Cheese_.jpg',
+      [ new Ingredient('Macaroni',500),
+        new Ingredient('Cheese', 150)]
+    ),
+      new Recipe('Hamburger',
+      'Big fat burger',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/McDonald%27s_Quarter_Pounder_with_Cheese%2C_United_States.jpg/800px-McDonald%27s_Quarter_Pounder_with_Cheese%2C_United_States.jpg',
+      [new Ingredient('Bun',1),
+       new Ingredient('Meat',1)]
+    )
   ];
 
   getRecipes() {
