@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 import { ServersService } from '../servers.service';
 
@@ -12,6 +12,7 @@ export class EditServerComponent implements OnInit {
   server: {id: number, name: string, status: string};
   serverName = '';
   serverStatus = '';
+  allowEdit = false;
 
   constructor(private serversService: ServersService, private route: ActivatedRoute) { }
 
@@ -22,8 +23,9 @@ export class EditServerComponent implements OnInit {
 
     // subscribe to route properties, triggers on every change
     // no need to unsubscribe, angular does this for us
-    this.route.queryParams.subscribe((data) => { console.log('queryParams change',data) });
-    this.route.fragment.subscribe((data) => { console.log('fragment change',data) });
+    this.route.queryParams.subscribe((params: Params) => { 
+      this.allowEdit = params.allowEdit === '1' ? true : false;
+    });
 
     this.server = this.serversService.getServer(1);
     this.serverName = this.server.name;
