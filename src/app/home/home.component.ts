@@ -33,11 +33,11 @@ export class HomeComponent implements OnInit {
      });
 
     //observable operator definition:
-     customIntervalObservable.pipe(map( (data: number) => {      
-      return 'Round ' + (data + 1);
-    })); 
+     
 
-    this.firstObsSubscription = customIntervalObservable.subscribe((data) => {  
+    this.firstObsSubscription = customIntervalObservable.pipe(map( (data: number) => {      
+      return 'Round ' + (data + 1);
+    })).subscribe((data) => {  
       console.log('data:',data);
     }, (error) => {console.warn("ERROR", error.message)},() => {console.log("Completed, now cleanup. Unsubscribe not necessary anymore")});
 
