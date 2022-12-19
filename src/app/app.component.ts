@@ -6,11 +6,5 @@ import { HeaderComponent } from './header/header.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  activeFeature = 'recipe';
-
-  
-  onNavigate(feature) {
-    this.activeFeature = feature;
-  }
   
 }
