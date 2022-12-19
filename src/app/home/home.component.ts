@@ -21,11 +21,19 @@ export class HomeComponent implements OnInit {
       let count = 0;
       setInterval(() => {        
         observer.next(count); //-> 
+        if (count === 5) {
+          observer.complete();
+        }
+        if (count >3) {
+          observer.error(new Error('Count is greater than 3'));
+        }
         count++;
       },1000);      
      });
 
-    this.firstObsSubscription = customIntervalObservable.subscribe((data) => { console.log('data:',data) });
+    this.firstObsSubscription = customIntervalObservable.subscribe((data) => {  
+      console.log('data:',data);
+    }, (error) => {console.warn("ERROR", error.message)},() => {console.log("Completed, now cleanup. Unsubscribe not necessary anymore")});
 
   }
 
